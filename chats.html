@@ -22,7 +22,7 @@
                 var series = this.series[0];
                 setInterval(function () {
                     var x = (new Date()).getTime(), // current time
-                        y = Math.random();
+                        y = round(Math.random()*9+67);
                     series.addPoint([x, y], true, true);
                 }, 1000);
             }
@@ -34,15 +34,18 @@
     },
 
     title: {
-        text: 'Live random data'
+        text: '服务器温度实时显示'
     },
     xAxis: {
         type: 'datetime',
-        tickPixelInterval: 150
+        tickPixelInterval: 150,
+        title: {
+            text: '时间'
+        },
     },
     yAxis: {
         title: {
-            text: 'Value'
+            text: 'CPU温度'
         },
         plotLines: [{
             value: 0,
@@ -71,7 +74,7 @@
             for (i = -19; i <= 0; i += 1) {
                 data.push({
                     x: time + i * 1000,
-                    y: Math.random()
+                    y: Math.  round(Math.random()*9+67)
                 });
             }
             return data;
